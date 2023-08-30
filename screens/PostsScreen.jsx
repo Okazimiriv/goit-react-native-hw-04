@@ -193,6 +193,7 @@ const styles = StyleSheet.create({
     marginBottom: 40,
   },
   postTitle: {
+    marginTop: 8,
     marginBottom: 8,
     fontFamily: "Roboto-Medium",
     fontSize: 15,
@@ -205,5 +206,3 @@ const styles = StyleSheet.create({
     lineHeight: 18.75,
   },
 });
-
-

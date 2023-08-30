@@ -30,6 +30,20 @@ export default function App() {
         }}
       >
         <MainStack.Screen
+          name="Registration"
+          component={Registration}
+          screenOptions={{
+            headerShown: false,
+          }}
+        />
+        <MainStack.Screen
+          name="Login"
+          component={Login}
+          screenOptions={{
+            headerShown: false,
+          }}
+        />
+        <MainStack.Screen
           name="Home"
           component={Home}
           options={{
@@ -45,20 +59,6 @@ export default function App() {
           }}
         />
         <MainStack.Screen
-          name="Registration"
-          component={Registration}
-          screenOptions={{
-            headerShown: false,
-          }}
-        />
-        <MainStack.Screen
-          name="Login"
-          component={Login}
-          screenOptions={{
-            headerShown: false,
-          }}
-        />
-        <MainStack.Screen
           name="Post"
           component={Post}
           options={{
@@ -69,12 +69,20 @@ export default function App() {
         <MainStack.Screen
           name="Comments"
           component={Comments}
-          // options={{
-          //   title: "Коментарі",
-          //   headerStyle: {
-          //     borderBottomWidth: 1,
-          //   },
-          // }}
+          options={{
+            title: "Коментарі",
+            headerShown: true,
+            headerStyle: {
+              borderBottomWidth: 1,
+            },
+            // headerRight: () => (
+            //   <Button
+            //     onPress={() => alert("This is a button!")}
+            //     title="Press me"
+            //     color="#fff"
+            //   />
+            // ),
+          }}
         />
       </MainStack.Navigator>
     </NavigationContainer>

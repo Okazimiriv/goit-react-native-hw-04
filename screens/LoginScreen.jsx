@@ -29,11 +29,10 @@ const Login = () => {
   const [isFocusedPassword, setIsFocusedPassword] = useState(false);
   const navigation = useNavigation();
 
-   const togglePassword = () => {
+  const togglePassword = () => {
     setSecureTextEntry(!secureTextEntry);
   };
 
-  
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS == "ios" ? "padding" : "height"}
@@ -42,16 +41,18 @@ const Login = () => {
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style={styles.container}>
           <ImageBackground source={BackImage} style={styles.image}>
-            <View style={{
-              ...styles.loginWrapper,
-              paddingBottom: isOpenKeyboard ? 10 : 78,
-              height: isOpenKeyboard ? 350 : "auto",
-            }}>
+            <View
+              style={{
+                ...styles.loginWrapper,
+                paddingBottom: isOpenKeyboard ? 10 : 78,
+                height: isOpenKeyboard ? 350 : "auto",
+              }}
+            >
               <Text style={styles.title}>Увійти</Text>
               <TextInput
-               style={{
+                style={{
                   ...styles.input,
-                  borderColor: isFocusedMail ?  "#FF6C00" : "#E8E8E8",
+                  borderColor: isFocusedMail ? "#FF6C00" : "#E8E8E8",
                 }}
                 placeholder="Адреса електронної пошти"
                 editable
@@ -59,30 +60,37 @@ const Login = () => {
                 maxLength={40}
                 onChangeText={(text) => onChangeEmail(text)}
                 value={email}
-                selectionColor={'#FF6C00'}
-                onFocus={() => { setIsOpenKeyboard(true), setIsFocusedMail(true) }}
-                onBlur={() => { setIsOpenKeyboard(false), setIsFocusedMail(false) }}                
-              />
-              <View>              
-               <TextInput
-                  style={{
-                  ...styles.input,
-                  borderColor: isFocusedPassword ?  "#FF6C00" : "#E8E8E8",
+                selectionColor={"#FF6C00"}
+                onFocus={() => {
+                  setIsOpenKeyboard(true), setIsFocusedMail(true);
                 }}
-                placeholder="Пароль"
-                autoComlete="password"
-                secureTextEntry={secureTextEntry}
-                editable
-                numberOfLines={1}
-                maxLength={40}
-                onChangeText={(text) => onChangePassword(text)}
-                value={password}
-                selectionColor={'#FF6C00'}
-                onFocus={() => { setIsOpenKeyboard(true), setIsFocusedPassword(true) }}
-                  onBlur={() => { setIsOpenKeyboard(false), setIsFocusedPassword(false) }}
-                  
+                onBlur={() => {
+                  setIsOpenKeyboard(false), setIsFocusedMail(false);
+                }}
               />
-               <TouchableOpacity
+              <View>
+                <TextInput
+                  style={{
+                    ...styles.input,
+                    borderColor: isFocusedPassword ? "#FF6C00" : "#E8E8E8",
+                  }}
+                  placeholder="Пароль"
+                  autoComlete="password"
+                  secureTextEntry={secureTextEntry}
+                  editable
+                  numberOfLines={1}
+                  maxLength={40}
+                  onChangeText={(text) => onChangePassword(text)}
+                  value={password}
+                  selectionColor={"#FF6C00"}
+                  onFocus={() => {
+                    setIsOpenKeyboard(true), setIsFocusedPassword(true);
+                  }}
+                  onBlur={() => {
+                    setIsOpenKeyboard(false), setIsFocusedPassword(false);
+                  }}
+                />
+                <TouchableOpacity
                   style={{ position: "absolute", top: 16, right: 16 }}
                   onPress={togglePassword}
                 >
@@ -93,18 +101,18 @@ const Login = () => {
                 style={styles.buttonLogin}
                 onPress={() => {
                   // Alert.alert("Credentials Login", ` ${email} + ${password}`),
-                    navigation.navigate("Home")
-                }}>
-               
+                  navigation.navigate("Home");
+                }}
+              >
                 <Text style={styles.textBtnLogin}>Увійти</Text>
               </Pressable>
               <Pressable
                 style={styles.buttonRegistration}
                 onPress={() => {
-                  navigation.navigate("Registration")
-                }}>                                
-                
-                <Text style={styles.text} >Немає аккаунту? Зареєструватися</Text>
+                  navigation.navigate("Registration");
+                }}
+              >
+                <Text style={styles.text}>Немає аккаунту? Зареєструватися</Text>
               </Pressable>
             </View>
           </ImageBackground>
@@ -165,7 +173,7 @@ const styles = StyleSheet.create({
     color: "#FFFFFF",
   },
   buttonRegistration: {
-    marginTop: 16,    
+    marginTop: 16,
     alignItems: "center",
   },
   text: {

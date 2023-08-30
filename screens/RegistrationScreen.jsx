@@ -35,7 +35,6 @@ const Registration = () => {
     setSecureTextEntry(!secureTextEntry);
   };
 
- 
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS == "ios" ? "padding" : "height"}
@@ -65,7 +64,7 @@ const Registration = () => {
               <TextInput
                 style={{
                   ...styles.input,
-                  borderColor: isFocusedLogo ?  "#FF6C00" : "#E8E8E8",
+                  borderColor: isFocusedLogo ? "#FF6C00" : "#E8E8E8",
                 }}
                 placeholder="Логін"
                 editable
@@ -73,14 +72,18 @@ const Registration = () => {
                 maxLength={40}
                 onChangeText={(text) => onChangeLogin(text)}
                 value={login}
-                selectionColor={'#FF6C00'}
-                onFocus={() => { setIsOpenKeyboard(true), setIsFocusedLogo(true) }}
-                onBlur={() => { setIsOpenKeyboard(false), setIsFocusedLogo(false) }}
+                selectionColor={"#FF6C00"}
+                onFocus={() => {
+                  setIsOpenKeyboard(true), setIsFocusedLogo(true);
+                }}
+                onBlur={() => {
+                  setIsOpenKeyboard(false), setIsFocusedLogo(false);
+                }}
               />
               <TextInput
-               style={{
+                style={{
                   ...styles.input,
-                  borderColor: isFocusedMail ?  "#FF6C00" : "#E8E8E8",
+                  borderColor: isFocusedMail ? "#FF6C00" : "#E8E8E8",
                 }}
                 placeholder="Адреса електронної пошти"
                 editable
@@ -88,16 +91,20 @@ const Registration = () => {
                 maxLength={40}
                 onChangeText={(text) => onChangeEmail(text)}
                 value={email}
-                selectionColor={'#FF6C00'}
-                onFocus={() => { setIsOpenKeyboard(true), setIsFocusedMail(true) }}
-                onBlur={() => { setIsOpenKeyboard(false), setIsFocusedMail(false) }}
+                selectionColor={"#FF6C00"}
+                onFocus={() => {
+                  setIsOpenKeyboard(true), setIsFocusedMail(true);
+                }}
+                onBlur={() => {
+                  setIsOpenKeyboard(false), setIsFocusedMail(false);
+                }}
               />
               <View>
                 <TextInput
                   style={{
-                  ...styles.input,
-                  borderColor: isFocusedPassword ?  "#FF6C00" : "#E8E8E8",
-                }}
+                    ...styles.input,
+                    borderColor: isFocusedPassword ? "#FF6C00" : "#E8E8E8",
+                  }}
                   placeholder="Пароль"
                   autoComlete="password"
                   secureTextEntry={secureTextEntry}
@@ -106,9 +113,13 @@ const Registration = () => {
                   maxLength={40}
                   onChangeText={(text) => onChangePassword(text)}
                   value={password}
-                  selectionColor={'#FF6C00'}
-                  onFocus={() => { setIsOpenKeyboard(true), setIsFocusedPassword(true) }}
-                  onBlur={() => { setIsOpenKeyboard(false), setIsFocusedPassword(false) }}
+                  selectionColor={"#FF6C00"}
+                  onFocus={() => {
+                    setIsOpenKeyboard(true), setIsFocusedPassword(true);
+                  }}
+                  onBlur={() => {
+                    setIsOpenKeyboard(false), setIsFocusedPassword(false);
+                  }}
                 />
                 <TouchableOpacity
                   style={{ position: "absolute", top: 16, right: 16 }}
@@ -120,17 +131,15 @@ const Registration = () => {
               <Pressable
                 style={styles.buttonNewRegistration}
                 onPress={() => {
-                //  Alert.alert("Credentials Regisrer", `${login} + ${email} + ${password}`),
-                  navigation.navigate("Login")
+                  //  Alert.alert("Credentials Regisrer", `${login} + ${email} + ${password}`),
+                  navigation.navigate("Login");
                 }}
               >
                 <Text style={styles.textBtnLogin}>Зареєструватися</Text>
               </Pressable>
               <Pressable
                 style={styles.buttonAlreadyLogin}
-                onPress={() =>                   
-                  navigation.navigate("Login")
-                }
+                onPress={() => navigation.navigate("Login")}
               >
                 <Text style={styles.text}>Вже є аккаунт? Увійти</Text>
               </Pressable>
