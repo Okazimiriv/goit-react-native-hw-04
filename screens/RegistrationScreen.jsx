@@ -47,8 +47,8 @@ const Registration = () => {
             <View
               style={{
                 ...styles.registrationWrapper,
-                paddingBottom: isOpenKeyboard ? 10 : 110,
-                height: isOpenKeyboard ? 360 : "auto",
+                paddingBottom: isOpenKeyboard ? 0 : 78,
+                height: isOpenKeyboard ? 420 : "auto",
               }}
             >
               <Image
@@ -120,7 +120,7 @@ const Registration = () => {
               <Pressable
                 style={styles.buttonNewRegistration}
                 onPress={() => {
-                 Alert.alert("Credentials Regisrer", `${login} + ${email} + ${password}`),
+                //  Alert.alert("Credentials Regisrer", `${login} + ${email} + ${password}`),
                   navigation.navigate("Login")
                 }}
               >
@@ -162,12 +162,12 @@ const styles = StyleSheet.create({
   },
   avatar: {
     alignSelf: "center",
-    marginTop: -60,
+    marginTop: -50,
     position: "absolute",
   },
   pressAvatarAdd: {
     position: "absolute",
-    marginTop: 21,
+    marginTop: 31,
     marginLeft: 235,
   },
   title: {
@@ -177,7 +177,7 @@ const styles = StyleSheet.create({
     fontSize: 30,
     fontWeight: 500,
     lineHeight: 35.16,
-    paddingBottom: 32,
+    paddingBottom: 25,
     justifyContent: "center",
   },
   input: {

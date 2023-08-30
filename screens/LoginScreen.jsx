@@ -45,7 +45,7 @@ const Login = () => {
             <View style={{
               ...styles.loginWrapper,
               paddingBottom: isOpenKeyboard ? 10 : 78,
-              height: isOpenKeyboard ? 250 : "auto",
+              height: isOpenKeyboard ? 350 : "auto",
             }}>
               <Text style={styles.title}>Увійти</Text>
               <TextInput
@@ -92,21 +92,18 @@ const Login = () => {
               <Pressable
                 style={styles.buttonLogin}
                 onPress={() => {
-                  Alert.alert("Credentials Login", ` ${email} + ${password}`),
-                  navigation.navigate("Post")
-                }
-                }
-              >
+                  // Alert.alert("Credentials Login", ` ${email} + ${password}`),
+                    navigation.navigate("Home")
+                }}>
+               
                 <Text style={styles.textBtnLogin}>Увійти</Text>
               </Pressable>
               <Pressable
                 style={styles.buttonRegistration}
-                onPress={() => {                  
-                  navigation.navigate("Registration")   
-                }                
-                                   
-                }
-              >
+                onPress={() => {
+                  navigation.navigate("Registration")
+                }}>                                
+                
                 <Text style={styles.text} >Немає аккаунту? Зареєструватися</Text>
               </Pressable>
             </View>
