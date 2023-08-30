@@ -1,21 +1,22 @@
-import "react-native-gesture-handler";
-import { Button } from "react-native";
-import React from "react";
-import { useFonts } from "expo-font";
-import { NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
-import Registration from "./screens/RegistrationScreen.jsx";
-import Login from "./screens/LoginScreen.jsx";
-import Post from "./screens/PostsScreen.jsx";
-import Home from "./screens/Home.jsx";
-import Comments from "./screens/CommentsScreen.jsx";
+import 'react-native-gesture-handler';
+import { Button } from 'react-native';
+import React from 'react';
+import { useFonts } from 'expo-font';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import Registration from './screens/RegistrationScreen.jsx';
+import Login from './screens/LoginScreen.jsx';
+import Post from './screens/PostsScreen.jsx';
+import Home from './screens/Home.jsx';
+import Comments from './screens/CommentsScreen.jsx';
+import { Feather } from '@expo/vector-icons';
 
 const MainStack = createStackNavigator(); // вказує на групу навігаторів
 
 export default function App() {
   const [fontsLoaded] = useFonts({
-    "Roboto-Medium": require("./assets/fonts/Roboto-Medium.ttf"),
-    "Roboto-Regular": require("./assets/fonts/Roboto-Regular.ttf"),
+    'Roboto-Medium': require('./assets/fonts/Roboto-Medium.ttf'),
+    'Roboto-Regular': require('./assets/fonts/Roboto-Regular.ttf'),
   });
   if (!fontsLoaded) {
     return null;
@@ -47,13 +48,13 @@ export default function App() {
           name="Home"
           component={Home}
           options={{
-            title: "Home",
+            // title: 'Home',
             headerStyle: {
-              backgroundColor: "#FF6C00",
+              backgroundColor: '#FF6C00',
             },
-            headerTintColor: "#fff",
+            headerTintColor: '#fff',
             headerTitleStyle: {
-              fontWeight: "bold",
+              fontWeight: 'bold',
               fontSize: 20,
             },
           }}
@@ -62,7 +63,7 @@ export default function App() {
           name="Post"
           component={Post}
           options={{
-            title: "Публікації",
+            title: 'Публікації',
             headerShown: true,
           }}
         />
@@ -70,18 +71,11 @@ export default function App() {
           name="Comments"
           component={Comments}
           options={{
-            title: "Коментарі",
+            title: 'Коментарі',
             headerShown: true,
             headerStyle: {
               borderBottomWidth: 1,
             },
-            // headerRight: () => (
-            //   <Button
-            //     onPress={() => alert("This is a button!")}
-            //     title="Press me"
-            //     color="#fff"
-            //   />
-            // ),
           }}
         />
       </MainStack.Navigator>

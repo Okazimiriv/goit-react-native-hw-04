@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   View,
   Text,
@@ -13,15 +13,15 @@ import {
   Platform,
   Keyboard,
   TouchableWithoutFeedback,
-} from "react-native";
+} from 'react-native';
 
-import { useState } from "react";
-import { useNavigation } from "@react-navigation/native";
-import BackImage from "../assets/images/photo-bg.png";
+import { useState } from 'react';
+import { useNavigation } from '@react-navigation/native';
+import BackImage from '../assets/images/photo-bg.png';
 
 const Login = () => {
-  const [email, onChangeEmail] = useState("");
-  const [password, onChangePassword] = useState("");
+  const [email, onChangeEmail] = useState('');
+  const [password, onChangePassword] = useState('');
 
   const [secureTextEntry, setSecureTextEntry] = useState(true);
   const [isOpenKeyboard, setIsOpenKeyboard] = useState(false);
@@ -35,7 +35,7 @@ const Login = () => {
 
   return (
     <KeyboardAvoidingView
-      behavior={Platform.OS == "ios" ? "padding" : "height"}
+      behavior={Platform.OS == 'ios' ? 'padding' : 'height'}
       style={{ flex: 1 }}
     >
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
@@ -45,22 +45,22 @@ const Login = () => {
               style={{
                 ...styles.loginWrapper,
                 paddingBottom: isOpenKeyboard ? 10 : 78,
-                height: isOpenKeyboard ? 350 : "auto",
+                height: isOpenKeyboard ? 350 : 'auto',
               }}
             >
               <Text style={styles.title}>Увійти</Text>
               <TextInput
                 style={{
                   ...styles.input,
-                  borderColor: isFocusedMail ? "#FF6C00" : "#E8E8E8",
+                  borderColor: isFocusedMail ? '#FF6C00' : '#E8E8E8',
                 }}
                 placeholder="Адреса електронної пошти"
                 editable
                 numberOfLines={1}
                 maxLength={40}
-                onChangeText={(text) => onChangeEmail(text)}
+                onChangeText={text => onChangeEmail(text)}
                 value={email}
-                selectionColor={"#FF6C00"}
+                selectionColor={'#FF6C00'}
                 onFocus={() => {
                   setIsOpenKeyboard(true), setIsFocusedMail(true);
                 }}
@@ -72,7 +72,7 @@ const Login = () => {
                 <TextInput
                   style={{
                     ...styles.input,
-                    borderColor: isFocusedPassword ? "#FF6C00" : "#E8E8E8",
+                    borderColor: isFocusedPassword ? '#FF6C00' : '#E8E8E8',
                   }}
                   placeholder="Пароль"
                   autoComlete="password"
@@ -80,9 +80,9 @@ const Login = () => {
                   editable
                   numberOfLines={1}
                   maxLength={40}
-                  onChangeText={(text) => onChangePassword(text)}
+                  onChangeText={text => onChangePassword(text)}
                   value={password}
-                  selectionColor={"#FF6C00"}
+                  selectionColor={'#FF6C00'}
                   onFocus={() => {
                     setIsOpenKeyboard(true), setIsFocusedPassword(true);
                   }}
@@ -91,17 +91,17 @@ const Login = () => {
                   }}
                 />
                 <TouchableOpacity
-                  style={{ position: "absolute", top: 16, right: 16 }}
+                  style={{ position: 'absolute', top: 16, right: 16 }}
                   onPress={togglePassword}
                 >
-                  <Text>{secureTextEntry ? "Показати" : "Сховати"}</Text>
+                  <Text>{secureTextEntry ? 'Показати' : 'Сховати'}</Text>
                 </TouchableOpacity>
               </View>
               <Pressable
                 style={styles.buttonLogin}
                 onPress={() => {
                   // Alert.alert("Credentials Login", ` ${email} + ${password}`),
-                  navigation.navigate("Home");
+                  navigation.navigate('Home');
                 }}
               >
                 <Text style={styles.textBtnLogin}>Увійти</Text>
@@ -109,7 +109,7 @@ const Login = () => {
               <Pressable
                 style={styles.buttonRegistration}
                 onPress={() => {
-                  navigation.navigate("Registration");
+                  navigation.navigate('Registration');
                 }}
               >
                 <Text style={styles.text}>Немає аккаунту? Зареєструватися</Text>
@@ -128,7 +128,7 @@ const styles = StyleSheet.create({
   },
   image: {
     flex: 1,
-    justifyContent: "flex-end",
+    justifyContent: 'flex-end',
   },
   loginWrapper: {
     paddingTop: 32,
@@ -137,49 +137,49 @@ const styles = StyleSheet.create({
     paddingBottom: 111,
     borderTopLeftRadius: 25,
     borderTopRightRadius: 25,
-    backgroundColor: "#FFFFFF",
+    backgroundColor: '#FFFFFF',
   },
   title: {
-    alignSelf: "center",
-    backgroundColor: "#FFFFFF",
-    fontFamily: "Roboto-Medium",
+    alignSelf: 'center',
+    backgroundColor: '#FFFFFF',
+    fontFamily: 'Roboto-Medium',
     fontSize: 30,
     fontWeight: 500,
     lineHeight: 35.16,
     paddingBottom: 32,
-    justifyContent: "center",
+    justifyContent: 'center',
   },
   input: {
     marginBottom: 16,
     paddingLeft: 16,
     height: 50,
-    backgroundColor: "#F6F6F6",
+    backgroundColor: '#F6F6F6',
     borderWidth: 1,
     borderRadius: 10,
-    borderColor: "#E8E8E8",
+    borderColor: '#E8E8E8',
     // activeBorderColor: "FF6C00",
   },
   buttonLogin: {
     marginTop: 27,
     height: 51,
-    backgroundColor: "#FF6C00",
-    justifyContent: "center",
+    backgroundColor: '#FF6C00',
+    justifyContent: 'center',
     borderRadius: 100,
   },
   textBtnLogin: {
     fontSize: 16,
-    alignSelf: "center",
-    justifyContent: "center",
-    color: "#FFFFFF",
+    alignSelf: 'center',
+    justifyContent: 'center',
+    color: '#FFFFFF',
   },
   buttonRegistration: {
     marginTop: 16,
-    alignItems: "center",
+    alignItems: 'center',
   },
   text: {
-    fontFamily: "Roboto-Regular",
-    color: "#1B4371",
-    textAlign: "center",
+    fontFamily: 'Roboto-Regular',
+    color: '#1B4371',
+    textAlign: 'center',
     marginTop: 16,
   },
 });
